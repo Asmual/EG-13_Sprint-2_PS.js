@@ -134,3 +134,29 @@ function lengthOfLongestSubstring(s) {
 // console.log(lengthOfLongestSubstring("abcabcbb"));
 // Expected Output: 3
 
+/********** 10. Deep Clone an Object **********/
+function deepClone(obj) {
+    if (obj === null || typeof obj !== 'object') {
+        return obj;
+    }
+
+    if (Array.isArray(obj)) {
+        const copyArr = [];
+        for (let i = 0; i < obj.length; i++) {
+            copyArr[i] = deepClone(obj[i]);
+        }
+        return copyArr;
+    }
+
+    const copyObj = {};
+    for (let key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            copyObj[key] = deepClone(obj[key]);
+        }
+    }
+    return copyObj;
+}
+
+// console.log(deepClone({ a: 1, b: { c: 2 } }));
+// Expected Output: { a: 1, b: { c: 2 } }
+
