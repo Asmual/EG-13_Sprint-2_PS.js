@@ -96,3 +96,19 @@ return result;
 
 // console.log(flattenArray([1, [2, [3, 4], 5]]));
 // Expected Output: [1, 2, 3, 4, 5]
+
+/********** 8. Group Anagrams **********/
+function groupAnagrams(strs) {
+const map = {};
+for (let i = 0; i < strs.length; i++) {
+const sorted = strs[i].split('').sort().join('');
+if (!map[sorted]) {
+map[sorted] = [];
+}
+map[sorted].push(strs[i]);
+}
+return Object.values(map);
+}
+
+// console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+// Expected Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
