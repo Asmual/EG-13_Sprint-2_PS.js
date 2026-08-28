@@ -49,3 +49,19 @@ return sum;
 
 // console.log(sumArray([10, 20, 30, 40]));
 // Expected Output: 100
+
+/********** 5. Count Vowels **********/
+function countVowels(str) {
+let count = 0;
+const vowels = "aeiouAEIOU";
+for (let i = 0; i < str.length; i++) {
+if (vowels.includes(str[i])) {
+count++;
+}
+}
+return count;
+}
+
+// console.log(countVowels("javascript"));
+// Expected Output: 3
+
